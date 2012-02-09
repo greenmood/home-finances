@@ -1,0 +1,25 @@
+<tr>
+  <td class="micropost">
+    <p id="notice"><%= notice %></p>
+
+<p>
+  <b>Time:</b>
+  <%= @finance.time %>
+</p>
+
+<p>
+  <b>Money:</b>
+	<% if @finance.money<0 %>
+	<span style="color:red"><%= @finance.money%> </span>
+	<% else %> 
+	<span style="color:green"> <%= @finance.money%> </span>
+	<% end %>
+</p>
+
+<p>
+  <b>Comment:</b>
+  <%= @finance.comment %>
+</p>
+
+  </td>
+</tr>

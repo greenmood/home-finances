@@ -1,0 +1,44 @@
+<table class="profile" summary="Profile information">
+  <tr>
+    <td class="main">
+    <% unless @user.finances.empty? %>
+      <table class="finances" summary="User finances">
+       <tr>
+    <th>Time</th>
+    <th>Money</th>
+    <th>Comment</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+<% @finances.each do |finance| %>
+  <tr>
+    <td><%= finance.time %></td>
+    <td><% if finance.money<0	 %>
+	<nav class = "redCell"><%= finance.money%> </span>
+	<% else %> 
+	<nav class = "greenCell"> <%= finance.money%> </span>
+	<% end %></td>
+    <td><%= finance.comment %></td>
+    <td><%= link_to 'Show', finance %></td>
+    <td><%= link_to 'Edit', edit_finance_path(finance) %></td>
+    <td><%= link_to 'Destroy', finance, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+<br />
+     
+      </table>
+    <% end %>
+    </td>
+    <td class="sidebar round">
+      <strong>Name</strong> <%= @user.name %><br />
+      <strong>Current Balance = </strong>  
+	<% sum=0 %>
+	<% @finances.each do |f| %>
+	<% sum=sum+f.money %>
+	<% end %>
+	<%= sum %>
+    </td>
+  </tr>
+</table>
+<%= link_to 'New Finance', new_finance_path %>

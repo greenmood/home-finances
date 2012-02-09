@@ -1,0 +1,3 @@
+<% @finances.each do |finance| %>
+<%=finance.money %>
+<% end %>

@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Time:</b>
+  <%= @finance.time %>
+</p>
+
+<p>
+  <b>Money:</b>
+	<% if @finance.money<0 %>
+	<div class = "redCell"><%= @finance.money%> </span>
+	<% else %> 
+	<div class = "greenCell"> <%= @finance.money%> </span>
+	<% end %>
+</p>
+
+<p>
+  <b>Comment:</b>
+  <%= @finance.comment %>
+</p>
+
+
+<%= link_to 'Edit', edit_finance_path(@finance) %> |
+<%= link_to 'Back', user_path(current_user) %>

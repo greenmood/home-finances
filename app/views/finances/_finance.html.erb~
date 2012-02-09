@@ -1,0 +1,26 @@
+ <tr>
+    <th>Time</th>
+    <th>Money</th>
+    <th>Comment</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+<% @finance.each do |finance| %>
+  <tr>
+    <td><%= finance.time %></td>
+    <td><% if finance.money<0	 %>
+	<span style="background-color:red"><%= finance.money%> </span>
+	<% else %> 
+	<span style="background-color:green"> <%= finance.money%> </span>
+	<% end %></td>
+    <td><%= finance.comment %></td>
+    <td><%= link_to 'Show', finance %></td>
+    <td><%= link_to 'Edit', edit_finance_path(finance) %></td>
+    <td><%= link_to 'Destroy', finance, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+
+
+<br />
+
